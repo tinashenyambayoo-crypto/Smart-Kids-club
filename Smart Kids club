@@ -1,0 +1,206 @@
+https://smartkidsclub.netlify.app// progress.js - load/save points & badges
+function loadProgress(){
+  const pts = Number(localStorage.getItem('sk_pts')||0);
+  const badges = JSON.parse(localStorage.getItem('sk_badges')||'[]');
+  const ptsEl = document.getElementById('pts');
+  if(ptsEl) ptsEl.textContent = pts;
+  const bdEl = document.getElementById('badges');
+  if(bdEl){ bdEl.innerHTML=''; badges.for// games.js — simple games: match-sound, word-builder, quick quiz (uses placeholder audio)
+const gamePlay = document.getElementById('game-play');
+
+document.querySelectorAll('[data-game]').forEach(b=>{
+  b.addEventListener('click', ()=> startGame(b.dataset.game));
+});
+
+function startGame(id){
+  if(!gamePlay) return;
+  gamePlay.innerHTML = '';
+  if(id === 'match-sound'){
+    const letters = 'abcdefghijklmnopqrstuvwxyz// stories.js — list of 6 stories (British English). Images are inline SVG data URIs (emoji on pastel backgrounds).
+const stories = [
+  { id:'story1', title:'Little Fox Finds a Friend', image: (function(){
+      return "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect width='800' height='400' rx='14' fill='%23fff3f6'/><text x='540' y='170' font-size='160'>🦊</text><text x='40' y='360' font-size='28' fill='%234444'>Little Fox Finds a Friend</text></svg>`);
+    })(), audio:'assets/audio/story1.mp3',
+    text:[
+      "Little Fox woke early in the bright forest. He wanted a friend to play with.",
+      "He met a small rabbit who loved to hop. They chased leaves and giggled all afternoon.",
+      "At dusk, they sat beneath a tall tree and watched the stars appear."
+    ]
+  },
+  { id:'story2', title:'Sunny Day Picnic', image: (function(){
+      return "data:image/svg+xml;utf8," + encodeURIComponent(`<svg// phonics.js – populate letters and play placeholder audio files in assets/audio/{letter}.mp3
+const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+const lettersDiv = document.getElementById('letters');
+if(lettersDiv){
+  letters.forEach(l=>{
+    const b = document.createElement('button');
+    b.className = 'letter';
+    b.textContent = l.toUpperCase();
+    b.addEventListener('click', ()=>{
+      const audio = new Audio('assets/audio/' + l + '.mp3');
+      audio.play().catch(err=>console.log('audio play failed', err));
+    });
+    lettersDiv.appendChild(b);
+  });
+}// main.js – small helpers
+console.log('Smart Kids Club loaded');
+// Future place for shared helpers<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Progress — Smart Kids Club</title>
+  <link rel="<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Games — Smart Kids Club</title>
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect rx='12' width='100%' height<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Phonics — Smart Kids Club</title>
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect rx='12' width='100%' height='100%' fill='%2317a673'/><text x='50%' y='54%' font-size='28' font-family='Arial' text-anchor='middle' fill='white' font-weight='bold'>SK</text></svg>">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header"><div class="brand-badge">SK</div><div><h1>Phonics</h1><p>Tap a letter to hear its sound.</p></div></header>
+    <nav><a class="btn" href="index.html">Home</a><a class="btn primary" href="phonics.html">Phonics</a><a class="btn" href="stories.html">Stories</a></nav>
+
+    <main>
+      <section class="card">
+        <h2>Letters A — Z</h2>
+        <div id="letters" class="letters"></div>
+      </section>
+    </main>
+
+    <div class="footer card">
+      <p>Created with love and care by Teacher Tinashe Nyambayo, Honde Valley.</p>
+      <p>📧 Contact: <a href="mailto:tinashenyambayoo@gmail.com">tinashenyambayoo@gmail.com</a></p>
+      <p><a href="https://www.paypal.com/donate?business=tinashenyambayoo@gmail.com&no_recurring=0&currency_code=USD" target="_blank" rel="noopener" class="btn">Support Smart Kids Club 💖</a></p>
+    </div>
+  </div>
+
+  <script<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Kids Club</title>
+  <!-- favicon: green SK (SVG data URI) -->
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect rx='12' width='100%' height='100%' fill='%2317a673'/><text x='50%' y='54%' font-size='28' font-family='Arial' text-anchor='middle' fill='white' font-weight='bold'>SK</text></svg>">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand-badge">SK</div>
+      <div>
+        <h1>Smart Kids Club</h1>
+        <p>Welcome to Smart Kids Club — where learning English is fun!</p>
+      </div>
+    </header>
+
+    <nav>
+      <a class="btn primary" href="index.html">Home</a>
+      <a class="btn" href="phonics.html">Phonics</a>
+      <a class="btn" href="stories.html">Stories</a>
+      <a class="btn" href="games.html">Games</a>
+      <a class="btn" href="progress.html">Progress</a>
+    </nav>
+
+    <main>
+      <section class="card">
+        <h2>Start Learning</h2>
+        <p>Playful phonics, read-along stories and games for ages 5–9.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+          <div class="card" style="flex:1;min-width:180px">
+            <h3>Phonics</h3><p>Tap letters to hear sounds and practise words.</p>
+          </div>
+          <div class="card" style="flex:1;min-width:180px">
+            <h3>Stories</h3><p>Short illustrated stories with narration and pictures.</p>
+          </div>
+          <div class="card" style="flex:1;min-width:180px">
+            <h3>Games</h3><p>Fun word-building and matching games.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer card" style="margin-top:18px">
+      <p>Created with love and care by Teacher Tinashe Nyambayo, Honde Valley.</p>
+      <p>📧 Contact: <a href="mailto:tinashenyambayoo@gmail.com">tinashenyambayoo@gmail.com</a></p>
+      <p><a href="https://www.paypal.com/donate?business=tinashenyambayoo@gmail.com&no_recurring=0&currency_code=USD" target="_blank" rel="noopener" class="btn">Support Smart Kids Club 💖</a></p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>/* style.css — Smart Kids Club (colourful pastels, star & cloud background) */
+:root{
+  --accent:#5cc8ff; --accent2:#ff9bb3; --accent3:#ffd166;
+  --text:#222; --muted:#666;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color:var(--text);
+  /* pastel star & cloud SVG background (data-uri) */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><defs><linearGradient id='g1' x1='0' x2='1'><stop offset='0' stop-color='%23fff7fb'/><stop offset='1' stop-color='%23f0fbff'/></linearGradient></defs><rect width='800' height='600' fill='url(%23g1)' /><g opacity='0.18' fill='%23fff'><ellipse cx='120' cy='120' rx='60' ry='30'/><ellipse cx='170' cy='120' rx='50' ry='28'/><ellipse cx='140' cy='100' rx='45' ry='22'/><ellipse cx='520' cy='80' rx='60' ry='30'/><ellipse cx='570' cy='80' rx='45' ry='22'/></g><g><circle cx='60' cy='40' r='4' fill='%23ffd9e8'/><circle cx='200' cy='60' r='3' fill='%23fff0b8'/><circle cx='300' cy='30' r='3.5' fill='%23cfefff'/><circle cx='400' cy='90' r='4.5' fill='%23ffd9e8'/><circle cx='620' cy='50' r='3' fill='%23fff0b8'/><circle cx='700' cy='120' r='4' fill='%23cfefff'/><circle cx='480' cy='140' r='3.5' fill='%23ffd9e8'/></g></svg>");
+  background-size:cover;
+}
+.container{max-width:1000px;margin:18px auto;padding:18px}
+.header{display:flex;align-items:center;gap:14px}
+.brand-badge{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px;box-shadow:0 8px 20px rgba(0,0,0,0.12)}
+nav{margin-top:12px}
+a.btn{display:inline-block;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.95);margin-right:8px;text-decoration:none;color:inherit;box-shadow:0 6px 18px rgba(11,20,40,0.06)}
+a.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:white}
+.card{background:rgba(255,255,255,0.95);padding:14px;border-radius:12px;margin-top:12px;box-shadow:0 8px 22px rgba(11,20,40,0.06)}
+.footer{margin-top:18px;padding:12px;text-align:center;color:var(--muted)}
+.letters{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.letter{width:64px;height:64px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff8f0);display:flex;align-items:center;justify-content:center;font-weight:800;cursor:pointer;box-shadow:0 8px 14px rgba(0,0,0,0.06)}
+.story-img{width:100%;height:200px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(180deg,#fff,#f7fffa)}
+.tile{display:inline-block;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.9);margin:6px;border:2px dashed rgba(0,0,0,0.06)}
+@media (max-width:800px){ .container{padding:10px} .brand-badge{width:56px;height:56px} .letter{width:52px;height:52px} }SmartKidsClub — Netlify-ready package
+
+How to publish (Netlify Drop – FREE)
+1. Zip the SmartKidsClub folder (SmartKidsClub.zip).
+2. Go to https://app.netlify.com/drop
+3. Drag & drop SmartKidsClub.zip — Netlify will upload and publish a site.
+4. Replace placeholder MP3s in assets/audio/ with real .mp3 files (keep same filenames).
+5. To change PayPal email, edit the donate link in HTML files (search for "paypal.com/donate").
+
+Notes:
+- Footer credit: "Created with love and care by Teacher Tinashe Nyambayo, Honde Valley."
+- Contact: tinashenyambayoo@gmail.com
+- Site uses British English spellings./ SmartKidsClub (top-level folder)
+  / css/
+    style.css
+  / js/
+    main.js
+    phonics.js
+    stories.js
+    games.js
+    progress.js
+  / assets/
+    / audio/
+      a.mp3  b.mp3  ... z.mp3
+      story1.mp3 ... story6.mp3
+  index.html
+  phonics.html
+  stories.html
+  games.html
+  progress.html
+  readme.txt// progress.js - load/save points & badges
+function loadProgress(){
+  const pts = Number(localStorage.getItem('sk_pts')||0);
+  const badges = JSON.parse(localStorage.getItem('sk_badges')||'[]');
+  const ptsEl = document.getElementById('pts');
+  if(ptsEl) ptsEl.textContent = pts;
+  const bdEl = document.getElementById('badges');
+  if(bdEl){ bdEl.innerHTML=''; badges.forEach(b=>{
+    const d = document.createElement('div'); d.className='tile';
